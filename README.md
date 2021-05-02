@@ -113,6 +113,66 @@
   | :---        |    :----:   | :----:   |:----:   | :----:   | :----:   | :----:   | :----:   | ---:|
   | bigint | varchar(40) | varchar(40), название файла в S3 | varchar(13) | varchar(30) | varchar(30) | varchar(60)| varchar(100)|  varchar(128)|
 
+  - Таблица закладки
+
+   | id | id пользователя | id объявления |
+     | :---        |    :----:   | ---:|
+   | bigint | bigint  | bigint  |
+
+   - Таблица отзывы
+
+   | id | id автора | Cookie | Дата начала |
+        | :---        |    :----:   | :----:   | ---:|
+   | bigint | bigint  | varchar(128)  |  timestamp  |
+
+   - Таблица сессия авторизации
+
+   | id | id автора | id объекта отзыва | Сообщение |
+           | :---        |    :----:   | :----:   | ---:|
+   | bigint | bigint  | bigint  |  varchar(200) |
+
+   - Таблица объявления
+
+   | id | Название | Цена |  Описание | Фотографии | Местоположение | Способ связи |id пользователя |
+     | :---        |    :----:   | :----:   |:----:   | :----:   | :----:   | :----:   |  ---:|
+   | bigint | varchar(30) | varchar(30) | varchar(600)  | varchar(40)(название файла в S3)[] | varchar(100) | varchar(30)| bigint|
+
+   - Таблица категория
+
+   | id | Название | 
+   | :---  |  ---:|
+   | bigint | varchar(20) | 
+
+   - Таблица категория-объявления
+
+   | id | id категории | id объявления | 
+   | :---        |    :----:   |  ---:|
+   | bigint | bigint  | bigint  |
+
+   - Таблица диалог
+
+   | id | Название | Дата | id объявления | Статус заказа |
+   | :--- | :----:   | :----:   | :----:   | ---:|
+   | bigint | varchar(20) | timestamp  |  bigint | enum(5 * varchar(10)) |
+
+   - Таблица черный список
+
+   | id | id пользователя | id автора списка | 
+   | :--- |    :----:   |  ---:|
+   | bigint | bigint  | bigint  |
+
+   - Таблица участники диалога
+
+   | id | id пользователя | Дата присоединения | id диалога |
+   | :--- |    :----:   | :----:   |  ---:|
+   | bigint | bigint  | timestamp   |  bigint  |
+
+   - Таблица сообщения
+
+   | id | id диалога | id автора | Текст | Дата | Дата удаления |
+   | :--- | :----:   | :----:   | :----:   | :----:   | ---:|
+   | bigint | bigint | bigint  |  varchar(200)| timestamp | timestamp |
+
 ### Список источников:
 1) <a href="https://www.similarweb.com/website/youla.ru/">similarweb, страница о Юле</a>
 2) <a href="https://sitechecker.pro/app/main/traffic-checker-land?pageUrl=https:%2F%2Fyoula.ru%2F">sitechecker, страница о Юле</a>
