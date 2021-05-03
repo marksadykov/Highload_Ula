@@ -402,7 +402,7 @@
 
 
 Произведем подбор машины:<br>
-<img src="./img/serv.png" alt="serv" width="319" height="643">
+<img src="./img/serv.png" alt="serv" width="319" height="643"><br>
 Стоимость: 211 300 рублей
 
 Оценим равномерное количество машин: 5604.44 ГБ / 1000 ГБ ~= 6<br>
